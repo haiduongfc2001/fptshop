@@ -566,6 +566,7 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style>
+  @import "@/assets/main.css";
+  export default {}
 </style>
