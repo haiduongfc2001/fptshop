@@ -7,7 +7,7 @@
             <div class="col l-2 m-6 c-6">
               <div class="logo-top">
                 <i class="fa fa-bars bar-reponsive"></i>
-                <a class="logo f-logo" href="./index.html"></a>
+                <a class="logo f-logo" href="/"></a>
               </div>
             </div>
             <!-- cart for mobile and tablet -->
@@ -267,7 +267,7 @@
                     <div class="nav-box-banner">
                       <a href="#">
                         <img
-                            src="./assets/images/navbar/hot selling/637922251851746367_F-H4_248x248.webp">
+                            src="../assets/images/navbar/hot selling/637922251851746367_F-H4_248x248.webp">
                       </a>
                     </div>
                   </div>
@@ -312,9 +312,7 @@
                           <td><a href="#">Trên 8 triệu</a></td>
                         </tr>
                         <tr>
-                          <td><a href="#">
-
-                          </a></td>
+                          <td><a href="#"></a></td>
                         </tr>
                       </table>
                       <table class="hot-selling">
@@ -401,7 +399,8 @@
                         <td>
                           <a href="#">
                             <img
-                                src="./assets/images/navbar/hot selling/637864982144816513_iphone-13-pro-max-dd-2-128-256-512-1tb.webp">
+                                src="./assets/images/navbar/hot selling/637864982144816513_iphone-13-pro-max-dd-2-128-256-512-1tb.webp"
+                                alt="bán chạy nhất">
                           </a>
                         </td>
                         <td><a href="#">iPhone 13 Pro Max 128GB
@@ -423,7 +422,7 @@
                     <div class="nav-box-banner">
                       <a href="#">
                         <img
-                            src="./assets/images/navbar/hot selling/637928315803655276_FI-H4_248x248.webp">
+                            src="./src/assets/images/navbar/hot selling/637928315803655276_FI-H4_248x248.webp">
                       </a>
                     </div>
                   </div>
@@ -568,5 +567,9 @@ export default {
 
 <style>
   @import "@/assets/main.css";
-  export default {}
+  @import "@/assets/slider.css";
+  @import "@/assets/slider-card.css";
+  @import "@/assets/reponsive.css";
+  @import "@/assets/grid.css";
+  @import "@/assets/style.css";
 </style>

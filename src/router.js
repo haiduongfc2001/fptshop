@@ -1,13 +1,26 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import userHeader from './components/layouts/header/userHeader.vue'
-import Footer from './components/layouts/footer/Footer.vue'
 
 export default createRouter({
     history: createWebHistory(),
+    base: process.env.BASE_URL,
     routes: [
         {
             path: '/',
-            component: userHeader, Footer
-        }
-    ]
+            redirect: 'mainpage',
+            component: () => import('@/layouts/Layout'),
+            children: [
+                // Components
+                {
+                    name: 'Mainpage',
+                    path: 'mainpage',
+                    component: () => import('@/view_user/pages_user/Mainpage'),
+                },
+                {
+                    name: 'UserPage',
+                    path: 'user',
+                    component: () => import('@/view_user/pages_user/UserPage'),
+                }
+            ],
+        },
+    ],
 })

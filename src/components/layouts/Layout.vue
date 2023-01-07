@@ -3,10 +3,9 @@
     <Header v-model="expandOnHover"></Header>
     <Sidebar :expand-on-hover.sync="expandOnHover"></Sidebar>
     <v-content style="background-color: white">
-      <headerIntro></headerIntro>
+      <userHeader></userHeader>
       <v-container rounded-0 class="fill-height" fluid>
         <router-view />
-
       </v-container>
     </v-content>
     <Footer></Footer>
@@ -16,9 +15,9 @@
 <script>
 // import Header from "./header/Header";
 // import Sidebar from "./sidebar/Sidebar";
-import { mapState, mapMutations } from "vuex";
+// import { mapState, mapMutations } from "vuex";
 import userHeader from "./Header/userHeader";
-import Footer from "./footer/Footer.vue";
+import Footer from "./footer/Footer";
 
 export default {
   name: "Layout",
