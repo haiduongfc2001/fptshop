@@ -13,20 +13,14 @@
 </template>
 
 <script>
-// import Header from "./header/Header";
-// import Sidebar from "./sidebar/Sidebar";
 // import { mapState, mapMutations } from "vuex";
-import userHeader from "./Header/userHeader";
-import Footer from "./footer/Footer";
+import UserHeader from "@/components/layouts/header/userHeader.vue";
+import Footer from "@/components/layouts/footer/Footer.vue";
 
 export default {
   name: "Layout",
 
-  components: {
-    // Header,
-    userHeader,
-    Footer
-  }
+  components: {Footer, UserHeader}
 };
 </script>
 
