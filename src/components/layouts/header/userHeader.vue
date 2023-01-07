@@ -142,7 +142,6 @@
                       <tr>
                         <td><a href="#">Trên 13 triệu</a></td>
                       </tr>
-                      <tr>
                     </table>
                     <table class="hot-selling">
                       <tr>
@@ -264,7 +263,6 @@
                       <tr>
                         <td><a href="#">Trên 30 triệu</a></td>
                       </tr>
-                      <tr>
                     </table>
                     <div class="nav-box-banner">
                       <a href="#">

@@ -18,7 +18,7 @@
 // import Sidebar from "./sidebar/Sidebar";
 import { mapState, mapMutations } from "vuex";
 import userHeader from "./Header/userHeader";
-import Footer from "./footer/Footer";
+import Footer from "./footer/Footer.vue";
 
 export default {
   name: "Layout",

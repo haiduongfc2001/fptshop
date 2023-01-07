@@ -1,5 +1,6 @@
 <template>
   <div class="App">
+    <router-view />
     <footer>
       &copy; Awesome Company
     </footer>
