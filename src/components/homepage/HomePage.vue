@@ -1,10 +1,11 @@
 <template>
-  <v-container>
-    <Layout>
-      <Slider />
-      <Product />
-    </Layout>
-  </v-container>
+<!--  <v-container>-->
+<!--    -->
+<!--  </v-container>-->
+  <Layout>
+    <Slider />
+    <Product />
+  </Layout>
 </template>
 
 <script>
