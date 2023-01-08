@@ -18,5 +18,10 @@ export default createRouter({
             path: '/slider',
             component: () => import('@/components/products/Slider.vue'),
         },
+        {
+            name: 'FeaturePhone',
+            path: '/feature-phone',
+            component: () => import('@/components/homepage/FeaturedPhone.vue'),
+        },
     ],
 })
