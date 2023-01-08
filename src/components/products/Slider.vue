@@ -58,11 +58,11 @@
 
 <script>
 export default {
-  name: "Product"
+  name: "Slider"
 }
 </script>
 
-<style scoped>
+<style>
   @import "@/assets/main.css";
   @import "@/assets/slider.css";
   @import "@/assets/slider-card.css";

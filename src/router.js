@@ -6,25 +6,25 @@ export default createRouter({
     routes: [
         {
             path: '/',
-            redirect: 'HomePage',
+            redirect: 'homepage',
             component: () => import('@/components/layouts/Layout.vue'),
             children: [
                 // Components
                 {
                     name: 'HomePage',
-                    path: 'homepage',
-                    component: () => import('@/components/homepage/HomePage'),
+                    path: '/homepage',
+                    component: () => import('@/components/homepage/HomePage.vue'),
                 },
-                {
-                    name: 'UserHeader',
-                    path: 'userheader',
-                    component: () => import('@/components/layouts/header/UserHeader.vue'),
-                },
-                {
-                    name: 'UserFooter',
-                    path: 'userfooter',
-                    component: () => import('@/components/layouts/footer/Footer.vue'),
-                }
+                // {
+                //     name: 'UserHeader',
+                //     path: '/userheader',
+                //     component: () => import('@/components/layouts/header/userHeader.vue'),
+                // },
+                // {
+                //     name: 'UserFooter',
+                //     path: '/userfooter',
+                //     component: () => import('@/components/layouts/footer/Footer.vue'),
+                // }
             ],
         },
     ],
