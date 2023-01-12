@@ -10,9 +10,19 @@ export default createRouter({
           component: HomeView
       },
       {
-          path: '/slider',
-          name: 'slider',
-          component: import("@/views/Slider.vue")
+          path: '/phone',
+          name: 'phone',
+          component: import("@/components/product/Phone.vue")
+      },
+      {
+          path: '/product-detail',
+          name: 'product-detail',
+          component: import("@/components/productdetails/ProductDetails.vue")
+      },
+      {
+          path: '/test-product',
+          name: 'test-product',
+          component: import("@/components/icons/IconDocumentation.vue")
       },
   ],
 })
