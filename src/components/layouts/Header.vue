@@ -18,19 +18,37 @@
                 </div>
               </div>
               <!-- end cart for mobile and tablet -->
-              <div class="col l-5 m-6 c-12">
-                <form class="search-top">
-                  <input type="search" placeholder="Nhập tên điện thoại, máy tính, phụ kiện... cần tìm">
-                  <button class="button-search">
-                    <i class="fa fa-magnifying-glass"></i>
-                  </button>
-                  <ul class="history-search">
-                    <span class="title-history-search">Lịch sử tìm</span>
-                    <li class="history-item"><a href="">Iphone</a></li>
-                    <li class="history-item"><a href="">Samsung</a></li>
-                    <li class="history-item"><a href="">Tai nghe</a></li>
-                  </ul>
-                </form>
+<!--              <div class="col l-5 m-6 c-12">-->
+<!--                <form class="search-top">-->
+<!--                  <input type="search" placeholder="Nhập tên điện thoại, máy tính, phụ kiện... cần tìm">-->
+<!--                  <button class="button-search">-->
+<!--                    <i class="fa fa-magnifying-glass"></i>-->
+<!--                  </button>-->
+<!--                  <ul class="history-search">-->
+<!--                    <span class="title-history-search">Lịch sử tìm</span>-->
+<!--                    <li class="history-item"><a href="">Iphone</a></li>-->
+<!--                    <li class="history-item"><a href="">Samsung</a></li>-->
+<!--                    <li class="history-item"><a href="">Tai nghe</a></li>-->
+<!--                  </ul>-->
+<!--                </form>-->
+<!--              </div>-->
+              <div class="col l-5 m-6 c-12" style="top: 10px">
+                <MDBInput
+                    inputGroup
+                    :formOutline="false"
+                    wrapperClass="mb-3"
+                    v-model="search5"
+                    placeholder="Nhập tên điện thoại, máy tính, phụ kiện... cần tìm"
+                    aria-label="Search"
+                >
+                  <MDBBtn color="primary" @click="showAlert"
+                          style="background-color: #333333;
+                                  width: 58px;
+                                  height: 36px;"
+                  >
+                    <MDBIcon icon="search"/>
+                  </MDBBtn>
+                </MDBInput>
               </div>
               <div class="col l-5 m-6 c-6">
                 <ul class="service">
@@ -194,10 +212,14 @@
                   </div>
                 </li>
                 <li class="menu-top-item">
-                  <a href="/phone">
-                    <i class="fa fa-laptop"></i>
-                    Laptop
-                  </a>
+<!--                  <a href="/phone">-->
+<!--                    <i class="fa fa-laptop"></i>-->
+<!--                    Laptop-->
+<!--                  </a>-->
+                  <router-link to="/laptop">
+                    <font-awesome-icon icon="fa-solid fa-laptop" style="margin-right: 4px"/>
+                     Laptop
+                  </router-link>
                   <div class="nav-box">
                     <table class="nav-company">
                       <tr>
@@ -568,9 +590,26 @@
 </template>
 
 <script>
+import { MDBInput, MDBBtn, MDBIcon } from 'mdb-vue-ui-kit';
+import { ref } from 'vue';
+
 export default {
-  name: "Header"
-}
+  name: "Header",
+  components: {
+    MDBInput,
+    MDBBtn,
+    MDBIcon,
+  },
+  setup() {
+    const search5 = ref('');
+    const showAlert = () => alert(search5.value);
+
+    return {
+      search5,
+      showAlert,
+    };
+  },
+};
 </script>
 
 <style>

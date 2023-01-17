@@ -11,8 +11,13 @@ export default createRouter({
       },
       {
           path: '/phone',
-          name: 'phone',
+          name: 'phone-products',
           component: import("@/components/product/Phone.vue")
+      },
+      {
+          path: '/laptop',
+          name: 'laptop-products',
+          component: import("@/components/product/Laptop.vue")
       },
       {
           path: '/product-detail',
@@ -20,9 +25,14 @@ export default createRouter({
           component: import("@/components/productdetails/ProductDetails.vue")
       },
       {
-          path: '/test-product',
-          name: 'test-product',
-          component: import("@/components/icons/IconDocumentation.vue")
+          path: '/test',
+          name: 'test',
+          component: import("@/components/icons/Test.vue")
+      },
+      {
+          path: '/test1',
+          name: 'test1',
+          component: import("@/components/icons/Test1.vue")
       },
   ],
 })
