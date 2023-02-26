@@ -8,10 +8,15 @@
               <li class="breadcrumb-item">
                 <router-link to="/">Trang chủ</router-link>
               </li>
-              <li class="breadcrumb-item">
+              <li v-if="product.categoryid === 1" class="breadcrumb-item">
                 <router-link to="/phone">Điện thoại</router-link>
               </li>
-              <li class="breadcrumb-item active" aria-current="page">{{ productName }}</li>
+              <li v-if="product.categoryid === 2" class="breadcrumb-item">
+                <router-link to="/laptop">Máy tính xách tay</router-link>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                {{ product.productname }}
+              </li>
             </ol>
           </nav>
         </div>
@@ -20,8 +25,7 @@
         <div class="col l-12 c-12 m-12">
           <div class="title-product-detail">
             <h1 class="name-category">
-              {{ productName }}
-              <span class="name-category-label">({{ productNumber }})</span>
+              {{ product.productname }}
             </h1>
             <div class="rating-category">
               <ul class="rating-star">
@@ -36,8 +40,11 @@
                 <span>|</span>
                 <a class="re-link" href="#"> 107 Hỏi & đáp</a>
               </div>
-              <a href="https://fptshop.com.vn/so-sanh-san-pham?samsung-galaxy-z-flip4-flex-mode-collection" class="re-link margin-left">
-                <span class="icon-plus margin-right"><font-awesome-icon icon="fa-solid fa-circle-plus" /></span>
+              <a href="https://fptshop.com.vn/so-sanh-san-pham?samsung-galaxy-z-flip4-flex-mode-collection"
+                 class="re-link margin-left">
+                <span class="icon-plus margin-right">
+                  <font-awesome-icon icon="fa-solid fa-circle-plus" />
+                </span>
                 So sánh
               </a>
             </div>
@@ -52,11 +59,11 @@
                 <div class="row">
                   <div class="carousel-slider carousel-product-sale">
                     <div class="carousel-frame">
-                      <img src="https://images.fpt.shop/unsafe/fit-in/585x429/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/1/12/638090838556171711_frame-detail-585x428.png"
-                           alt="Tien tao ve troi">
+                      <img src="https://images.fpt.shop/unsafe/fit-in/585x429/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/2/1/638108489376997131_frame-detail-585x428.png"
+                           alt="Thang hai cap doi">
                       <p>
                         Lì xì
-                        <span>4.000.000 đ</span>
+                        <span>{{ formatCurrency(product.discount) }}</span>
                       </p>
                     </div>
                     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -65,23 +72,13 @@
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
                       </div>
-                      <div class="carousel-inner">
-                        <div class="carousel-item active">
-                          <img src="https://images.fpt.shop/unsafe/fit-in/585x390/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/12/6/638059219869727250_iphone-12-den-1.jpg"
-                               class="d-block w-100" alt="..."
-                               style="width: auto;
-                                height: 73%;">
-                        </div>
-                        <div class="carousel-item">
-                          <img src="https://images.fpt.shop/unsafe/fit-in/585x390/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/12/6/638059219869883593_iphone-12-den-2.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                          <img src="https://images.fpt.shop/unsafe/fit-in/585x390/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/12/6/638059219869727250_iphone-12-den-1.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                          <img src="https://images.fpt.shop/unsafe/fit-in/585x390/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/12/6/638059219869883593_iphone-12-den-2.jpg" class="d-block w-100" alt="...">
-                        </div>
+                      <div class="carousel-inner carousel-inner__img">
+                          <div :class="index === 0 ? 'carousel-item active' : 'carousel-item'" v-for="(productimg, index) in product.list" :key="index">
+                            <img :src="productimg.img" class="d-block w-100" style="width: auto; height: 73%"
+                                 alt="image product">
+                          </div>
                       </div>
                       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                         <div class="round">
@@ -111,13 +108,55 @@
                       <p>Trong hộp có gì</p>
                     </a>
                   </div>
-                  <div class="info-cate">
+                  <div v-if="product.categoryid === 2" class="info-cate">
                     <ul>
-                      <li class="info-cat-item"><i class="fa fa-mobile-screen-button"></i> <span>Màn hình: 6.43 inch, Chính: AMOLED, FHD+, 1080 x 2400 Pixels</span> </li>
-                      <li class="info-cat-item"><i class="fa fa-camera"></i> <span> Camera: 64.0 MP + 2.0 MP + 2.0 MP</span></li>
-                      <li class="info-cat-item"><i class="fa fa-microchip"></i> <span>CPU: Snapdragon 695 5G</span> </li>
-                      <li class="info-cat-item"><i class="fa fa-memory"></i> <span>ROM: 128G RAM: 8G</span> </li>
-                      <li class="info-cat-item"><i class="fa fa-battery-full"></i> <span> Pin: 5000mah</span></li>
+                      <li class="info-cat-item">
+                        <i><font-awesome-icon icon="fa-solid fa-laptop" /></i>
+                        <span>{{ product.description.monitor }}</span>
+                      </li>
+                      <li class="info-cat-item">
+                        <i><font-awesome-icon icon="fa-solid fa-microchip" /></i>
+                        <span>{{ product.description.cpu }}</span>
+                      </li>
+                      <li class="info-cat-item">
+                        <i><font-awesome-icon icon="fa-solid fa-hard-drive" /></i>
+                        <span>{{ product.description.disk }}</span>
+                      </li>
+                      <li class="info-cat-item">
+                        <i><font-awesome-icon icon="fa-solid fa-microchip" /></i>
+                        <span>{{ product.description.ram }}</span>
+                      </li>
+                      <li class="info-cat-item">
+                        <i><font-awesome-icon icon="fa-solid fa-weight-hanging" /></i>
+                        <span>{{ product.description.gpu }}</span>
+                      </li>
+                    </ul>
+                    <a class="re-link info-details" href="/">
+                      Xem chi tiết thông số kỹ thuật
+                    </a>
+                  </div>
+                  <div v-else class="info-cate">
+                    <ul>
+                      <li class="info-cat-item">
+                        <i><font-awesome-icon icon="fa-solid fa-microchip" /></i>
+                        <span>{{ product.description.cpu }}</span>
+                      </li>
+                      <li class="info-cat-item">
+                        <i><font-awesome-icon icon="fa-solid fa-mobile-screen-button"/></i>
+                        <span>{{ product.description.monitor }}</span>
+                      </li>
+                      <li class="info-cat-item">
+                        <i><font-awesome-icon icon="fa-solid fa-hard-drive" /></i>
+                        <span>{{ product.description.rom }}</span>
+                      </li>
+                      <li class="info-cat-item">
+                        <i class="fa-sharp fa-solid fa-memory"></i>
+                        <span>{{ product.description.cam1 }}</span>
+                      </li>
+                      <li class="info-cat-item">
+                        <i class="fa-sharp fa-solid fa-memory"></i>
+                        <span>{{ product.description.cam2 }}</span>
+                      </li>
                     </ul>
                     <a class="re-link info-details" href="/">
                       Xem chi tiết thông số kỹ thuật
@@ -141,18 +180,14 @@
             <div class="content-product-detail-right">
               <div class="price">
                 <div class="price-left">
-                  <div class="price-main">
-                    15.499.000₫
-                  </div>
+                  <div class="price-main">{{ formatCurrency(salePrice(product)) }}</div>
                   <div class="price-sub">
-                  <span style="text-decoration: line-through;">
-                    19.999.000₫
-                  </span>
+                  <span style="text-decoration: line-through;">{{ formatCurrency(product.price) }}</span>
                   </div>
                 </div>
                 <div class="price-right">
                   <span>Trả góp chỉ từ&nbsp;</span>
-                  <span><strong>2.169.500₫/tháng</strong></span>
+                  <span><strong>{{ formatCurrency(Math.round(payPerMonth(product))) }}/tháng</strong></span>
                 </div>
               </div>
               <div class="loyalty">
@@ -160,36 +195,18 @@
                   <button type="button" class="btn btn-secondary loyalty-info" data-bs-toggle="tooltip" data-bs-placement="bottom"
                           title="Điểm thưởng khi mua hàng. Quý khách có thể sử dụng đổi thành Voucher khi thanh toán. ">
                     <span>F</span>
-                    <strong>+ 487 điểm thưởng dự kiến</strong>
+                    <strong>+ {{ Math.round(rewardPoint(product)) }} điểm thưởng dự kiến</strong>
                     <i><font-awesome-icon icon="fa-solid fa-circle-info" /></i>
                   </button>
                 </div>
               </div>
-              <div class="option">
-                <label class="form-check-option active">
-                  <input type="radio" class="form-check-option" name="radio" id="" checked>
-                  RAM 4G ROM 64G
-                </label>
-                <label class="form-check-option">
-                  <input type="radio" class="form-check-option" name="radio" id="">
-                  RAM 6G ROM 12G
-                </label>
-              </div>
-              <div class="option-color-wrapper">
-                <span>Màu sắc: </span>
-                <ul class="option-color">
-                  <li class="option-color-item"></li>
-                  <li class="option-color-item"></li>
-                  <li class="option-color-item"></li>
-                </ul>
-              </div>
               <div class="sale-gift">
                 <div class="sale-gift-title">Nhận ngay khuyến mại đặc biệt</div>
                 <ul class="sale-gift-list sale-gift-list__more">
-                  <li>
+                  <li class="sale-gift-item">
                     <i><font-awesome-icon icon="fa-solid fa-circle-check" /></i>
                     <div>
-                      <span>Lì xì ngay 7.500.000đ</span>
+                      <span>Lì xì ngay {{ formatCurrency(product.discount) }}</span>
                     </div>
                   </li>
                   <li class="sale-gift-item">
@@ -241,19 +258,6 @@
                     </div>
                   </li>
                 </ul>
-<!--                <b-form-group-->
-<!--                    label="Ship via:"-->
-<!--                    label-cols-sm="3"-->
-<!--                    label-align-sm="right"-->
-<!--                    class="mb-0"-->
-<!--                    v-slot="{ ariaDescribedby }"-->
-<!--                >-->
-<!--                  <b-form-radio-group-->
-<!--                      class="pt-2"-->
-<!--                      :options="['Air', 'Courier', 'Mail']"-->
-<!--                      :aria-describedby="ariaDescribedby"-->
-<!--                  ></b-form-radio-group>-->
-<!--                </b-form-group>-->
               </div>
               <div class="pay-methods">
                 <ul>
@@ -296,19 +300,121 @@
                 </ul>
               </div>
               <div class="pay-cate">
-                <div class="pay-now">
-                  <strong>
-                    MUA NGAY
-                  </strong>
+<!--                <BuyNow />-->
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary btn-xl btn-full" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+                  <div>
+                    <strong>
+                      MUA NGAY
+                    </strong>
+                  </div>
                   <p>Giao hàng miễn phí hoặc nhận tại shop</p>
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Có 1 sản phẩm trong giỏ hàng</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="modal-product">
+                          <div class="modal-product__img">
+                            <img :src="product.list[0].img"
+                                 alt="{{ product.productname }}">
+                          </div>
+                          <h3 class="modal-product__name">{{ product.productname }}</h3>
+                          <div class="modal-product__quantity" style="margin-left: 28px">
+                            <div class="product-cart__quality__wrap">
+                              <button @click="decreaseQuantity" :disabled="quantity === 1" class="btn">
+                                <font-awesome-icon icon="fa-solid fa-minus" />
+                              </button>
+                              <span class="product-quantity"> {{ quantity }} </span>
+                              <button @click="increaseQuantity" class="btn">
+                                <font-awesome-icon icon="fa-solid fa-plus" />
+                              </button>
+                            </div>
+                          </div>
+                          <div class="modal-product__price" style="margin: auto 32px;">
+                              <div style="color: #cb1c22; font-weight: 500;">
+                                {{ formatCurrency(salePrice(product) * this.quantity) }}
+                              </div>
+                              <div style="text-decoration: line-through">
+                                {{ formatCurrency(product.price * this.quantity) }}
+                              </div>
+                          </div>
+                        </div>
+                        <div class="cart__form cart__form--type">
+                          <div class="cart__form__block">
+                            <div class="form-customer" style="display: block">
+                              <div class="cart__form__line margin-bottom">
+                                <div class="form-check margin-right">
+                                  <input readonly class="form-check-input" type="radio" name="gender" id="radio-cart1">
+                                  <label class="form-check-label" for="radio-cart1">
+                                    Anh
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <input readonly class="form-check-input" type="radio" name="gender" id="radio-cart2">
+                                  <label class="form-check-label" for="radio-cart2">
+                                    Chị
+                                  </label>
+                                </div>
+                              </div>
+                              <div class="cart__form__line margin-bottom cart__form__line--col">
+                                <div class="namecus">
+                                  <input type="text" class="form-control" placeholder="Nhập họ và tên" aria-label="Username" aria-describedby="addon-wrapping">
+                                </div>
+                                <div class="phonecus">
+                                  <input type="number" class="form-control" placeholder="Nhập số điện thoại" aria-label="PhoneNumber" aria-describedby="addon-wrapping">
+                                </div>
+                                <input type="email" class="form-control" placeholder="Nhập email (không bắt buộc)" aria-label="Email" aria-describedby="addon-wrapping">
+                              </div>
+                            </div>
+                            <div class="cart__form__line form-delivery" style="display: block">
+                              <div class="cart__title">Chọn hình thức nhận hàng</div>
+                              <div class="cart__payment">
+                                <div class="cart__payment__wrap cart__methodship">
+                                  <div class="form-check margin-right" style="width: 160px">
+                                    <input readonly class="form-check-input" type="radio" name="methodship" id="radio-cart3">
+                                    <label class="form-check-label" for="radio-cart3">
+                                      Giao hàng tận nơi
+                                    </label>
+                                  </div>
+                                  <div class="form-check" style="width: 160px">
+                                    <input readonly class="form-check-input" type="radio" name="methodship" id="radio-cart4">
+                                    <label class="form-check-label" for="radio-cart4">
+                                      Nhận tại cửa hàng
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <!--            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+                        <button type="button" class="btn btn-xl cart-submit">HOÀN TẤT ĐẶT HÀNG</button>
+                        <p>
+                          Bằng cách đặt hàng, quý khách đồng ý với
+                          <a href="https://fptshop.com.vn/tos" class="re-link--gray" style="text-decoration: underline;">
+                            Điều khoản sử dụng
+                          </a>
+                          của FPTShop
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="pay-with">
+                <div class="btn btn-info btn-xl btn--half">
                   <strong>
                     TRẢ GÓP 0%
                   </strong>
                   <p>Duyệt nhanh qua điện thoại</p>
                 </div>
-                <div class="pay-with">
+                <div class="btn btn-info btn-xl btn--half">
                   <strong>
                     TRẢ GÓP QUA THẺ
                   </strong>
@@ -336,102 +442,54 @@
             </div>
             <div class="product-cate-card active">
               <div class="row no-gutters">
-<!--                <div v-for="laptopproduct in laptopproducts"-->
-<!--                     :key="laptopproduct.id"-->
-<!--                     class="col l-3 m-6 c-6 card-slider">-->
-<!--                  <div class="product-card-item product-card-item-sale">-->
-<!--                    <div class="product-card-item-img">-->
-<!--                      <router-link to="/product-detail">-->
-<!--                        <img :src="laptopproduct.img_url"-->
-<!--                             alt="{{ laptopproduct.name }}">-->
-<!--                      </router-link>-->
-<!--                      <div class="sticker">-->
-<!--                        <span class="stickers sticker-event">Trả góp 0%</span>-->
-<!--                        <br>-->
-<!--                        <span class="stickers sticker-sale">Lì xì 3.000.000</span>-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                    <div class="product-card-item-content">-->
-<!--                      <h3>-->
-<!--                        <a href="/" class="title-card">{{ laptopproduct.name }}</a>-->
-<!--                      </h3>-->
-<!--                      <div class="price">-->
-<!--                        <span class="new-price">{{ laptopproduct.price_sale }} đ</span>-->
-<!--                        <span class="old-price">{{ laptopproduct.price }} đ</span>-->
-<!--                      </div>-->
-<!--                      <div class="card-item-info__promo">-->
-<!--                        <div class="card-item-info__promo-product">-->
-<!--                                  <span>-->
-<!--                                    <i><font-awesome-icon icon="fa-solid fa-laptop" /></i>-->
-<!--                                    {{ laptopproduct.screen }}-->
-<!--                                  </span>-->
-<!--                          <span>-->
-<!--                                    <i><font-awesome-icon icon="fa-solid fa-microchip" /></i>-->
-<!--                                    {{ laptopproduct.cpu }}-->
-<!--                                  </span>-->
-<!--                          <span>-->
-<!--                                    <i><font-awesome-icon icon="fa-solid fa-microchip" /></i>-->
-<!--                                    {{ laptopproduct.ram }}-->
-<!--                                  </span>-->
-<!--                          <span>-->
-<!--                                    <i><font-awesome-icon icon="fa-solid fa-hard-drive" /></i>-->
-<!--                                    {{ laptopproduct.harddrive }}-->
-<!--                                  </span>-->
-<!--                          <span>-->
-<!--                                    <i><font-awesome-icon icon="fa-solid fa-microchip" /></i>-->
-<!--                                    {{ laptopproduct.graphics }}-->
-<!--                                  </span>-->
-<!--                          <span>-->
-<!--                                    <i><font-awesome-icon icon="fa-solid fa-weight-hanging" /></i>-->
-<!--                                    {{ laptopproduct.weight }}-->
-<!--                                  </span>-->
-<!--                        </div>-->
-<!--                        <ItemInfoPromo />-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
-                <div v-for="phoneproduct in phoneproducts"
-                     :key="phoneproduct.id"
-                     class="col l-3 m-6 c-6 card-slider">
-                  <div class="product-card-item product-card-item-sale">
+                <div v-for="item in filteredItems"
+                     :key="item.productid"
+                     class="col l-3 m-6 c-6 card-slider"
+                     @click="handleItem(item.productid, item.productname)">
+                  <div class="product-card-item product-card-item-sale" style="cursor: pointer">
                     <div class="product-card-item-img">
-                      <router-link to="/product-detail">
-                        <img :src="phoneproduct.img_url"
-                             alt="{{ phoneproduct.name }}">
-                      </router-link>
+                      <img :src="item.img"
+                           alt="{{ item.productname }}">
                       <div class="sticker">
                         <span class="stickers sticker-event">Trả góp 0%</span>
                         <br>
-                        <span class="stickers sticker-sale">Lì xì 3.000.000</span>
+                        <span class="stickers sticker-sale">Lì xì {{ formatCurrency(item.discount) }}</span>
                       </div>
                     </div>
                     <div class="product-card-item-content">
-                      <h3>
-                        <a href="/" class="title-card">{{ phoneproduct.name }}</a>
+                      <h3 class="title-card">
+                        {{ item.productname }}
                       </h3>
                       <div class="price">
-                        <span class="new-price">{{ phoneproduct.price_sale }} đ</span>
-                        <span class="old-price">{{ phoneproduct.price }} đ</span>
+                        <div class="progress">
+                          {{ formatCurrency(salePrice(item)) }}
+                          <div class="progress-bar" role="progressbar" :style="{ width: progressBarWidth(item) }"
+                               aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="strike-price">
+                      <span style="text-decoration: line-through">
+                        {{ formatCurrency(item.price) }}
+                      </span>
+                        </div>
                       </div>
                       <div class="card-item-info__promo">
                         <div class="card-item-info__promo-product">
-                                  <span>
-                                    <i><font-awesome-icon icon="fa-solid fa-microchip" /></i>
-                                    {{ phoneproduct.cpu}}
-                                  </span>
+                      <span>
+                        <i><font-awesome-icon icon="fa-solid fa-microchip" /></i>
+                        {{ item.description.cpu }}
+                      </span>
                           <span>
-                                    <i><font-awesome-icon icon="fa-solid fa-mobile-screen-button"/></i>
-                                    {{ phoneproduct.screen}}
-                                  </span>
+                          <i><font-awesome-icon icon="fa-solid fa-mobile-screen-button"/></i>
+                          {{ getMonitorSize(item.description.monitor) }}
+                        </span>
                           <span>
-                                    <i><font-awesome-icon icon="fa-solid fa-microchip" /></i>
-                                    {{ phoneproduct.ram}}
-                                  </span>
+                        <i><font-awesome-icon icon="fa-solid fa-microchip" /></i>
+                        {{ item.description.rom }}
+                      </span>
                           <span>
-                                    <i class="fa-sharp fa-solid fa-memory"></i>
-                                    {{ phoneproduct.memory}}
-                                  </span>
+                        <i class="fa-sharp fa-solid fa-memory"></i>
+                        {{ item.description.cam2 }}
+                      </span>
                         </div>
                         <ItemInfoPromo />
                       </div>
@@ -448,67 +506,257 @@
 </template>
 
 <script>
-
+import BuyNow from "@/components/productdetails/BuyNow.vue";
 import ItemInfoPromo from "@/components/layouts/ItemInfoPromo.vue";
+import {formatCurrency} from "@/utils";
+import axios from "axios";
 
 export default {
-  name: 'ProductDetails',
-  components: {ItemInfoPromo},
+  name: 'productDetail',
+  components: {BuyNow, ItemInfoPromo},
 
   data() {
     return {
-      phoneproducts: [
-        {
-          id: "p1",
-          name: "iPhone 13 128GB",
-          img_url: "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/1/11/638090353746989186_iphone-13-dd-bh.jpg",
-          price_sale: "20.000.000",
-          price: "25.000.000",
-          cpu: "Apple A15 Bionic",
-          screen: "6.1 inch",
-          ram: "4 GB",
-          memory: "128 GB"
-        },
-        {
-          id: "p2",
-          name: "iPhone 13 128GB",
-          img_url: "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/1/11/638090353746989186_iphone-13-dd-bh.jpg",
-          price_sale: "20.000.000",
-          price: "25.000.000",
-          cpu: "Apple A15 Bionic",
-          screen: "6.1 inch",
-          ram: "4 GB",
-          memory: "128 GB"
-        },
-        {
-          id: "p3",
-          name: "iPhone 13 128GB",
-          img_url: "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/1/11/638090353746989186_iphone-13-dd-bh.jpg",
-          price_sale: "20.000.000",
-          price: "25.000.000",
-          cpu: "Apple A15 Bionic",
-          screen: "6.1 inch",
-          ram: "4 GB",
-          memory: "128 GB"
-        },
-        {
-          id: "p4",
-          name: "iPhone 13 128GB",
-          img_url: "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/1/11/638090353746989186_iphone-13-dd-bh.jpg",
-          price_sale: "20.000.000",
-          price: "25.000.000",
-          cpu: "Apple A15 Bionic",
-          screen: "6.1 inch",
-          ram: "4 GB",
-          memory: "128 GB"
-        },
-      ],
+      product_id: "-1",
+      product_name_convert: "",
+      products: [],
+      product: {},
+      item: {},
+      items: [],
+      item_id: "-1",
+      item_name: "",
       checkedEvo: [],
       checkedKredivo: [],
-      productName: "iPhone 13 128GB",
-      productNumber: "No.00719655"
+      types: [
+        'text',
+        'number',
+        'email',
+        'password',
+        'search',
+        'url',
+        'tel',
+        'date',
+        'time',
+        'range',
+        'color'
+      ],
+      quantity: 1,
     }
-  }
+  },
+  created() {
+    // this.category_id = this.$route.params.category_id;
+    this.$watch(
+        () => this.$route.params,
+        (toParams, previousParams) => {
+          console.log("before:", toParams);
+          console.log("after:", previousParams);
+          this.product_name_convert = this.$route.params.product_name_convert;
+          this.item_name_convert = this.$route.params.item_name_convert;
+        }
+    ),
+        this.getItemByID();
+  },
+  watch: {
+    product_id() {
+      this.getItems();
+      console.log(this.product_id)
+    },
+    item_id() {
+      this.getItems();
+      console.log(this.item_id)
+    },
+  },
+  methods: {
+    formatCurrency,
+    handleProduct(product_id, product_name) {
+      this.product_id = product_id;
+      this.product_name = product_name;
+      // console.log(this.product_name_convert),
+      this.$router.push({
+        name: "productDetail",
+        params: {product_id: `${this.product_id}`, product_name_convert: `${this.product_name_convert_computed}`},
+      }).catch(() => true);
+    },
+    handleItem(item_id, item_name) {
+      this.item_id = item_id;
+      this.item_name = item_name;
+      this.$router.push({
+        name: "productDetail",
+        params: {item_id: `${this.item_id}`, item_name_convert: `${this.item_name_convert_computed}`},
+      }).catch(() => true);
+    },
+    getMonitorSize(monitorString) {
+      // Split the monitor string by comma and space
+      const monitorArray = monitorString.split(", ");
+      // Get the first element of the array
+      const monitorSize = monitorArray[0];
+      return monitorSize;
+    },
+    // bo het dau trong tieng Viet
+    removeVietnameseTones(str) {
+      str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+      str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+      str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+      str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+      str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+      str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+      str = str.replace(/đ/g, "d");
+      str = str.replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A");
+      str = str.replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ/g, "E");
+      str = str.replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I");
+      str = str.replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ/g, "O");
+      str = str.replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U");
+      str = str.replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y");
+      str = str.replace(/Đ/g, "D");
+      // Some system encode vietnamese combining accent as individual utf-8 characters
+      // Một vài bộ encode coi các dấu mũ, dấu chữ như một kí tự riêng biệt nên thêm hai dòng này
+      str = str.replace(/\u0300|\u0301|\u0303|\u0309|\u0323/g, ""); // ̀ ́ ̃ ̉ ̣  huyền, sắc, ngã, hỏi, nặng
+      str = str.replace(/\u02C6|\u0306|\u031B/g, ""); // ˆ ̆ ̛  Â, Ê, Ă, Ơ, Ư
+      return str;
+    },
+    getIDByPath(path) {
+      console.log("input path: ", path)
+      for (let index in this.products) {
+        const product = this.products[index]
+        console.log(this.removeVietnameseTones(product.productname).replaceAll(' ', '-').toLowerCase())
+        if (this.removeVietnameseTones(product.productname).replaceAll(' ', '-').toLowerCase() == path) {
+          return product.productid
+        }
+      }
+      return 0
+    },
+    getIDItemByPath(path) {
+      console.log("input path: ", path)
+      for (let index in this.items) {
+        const item = this.items[index]
+        console.log(this.removeVietnameseTones(item.productname).replaceAll(' ', '-').toLowerCase())
+        if (this.removeVietnameseTones(item.productname).replaceAll(' ', '-').toLowerCase() == path) {
+          return item.productid
+        }
+      }
+      return 0
+    },
+    getItems() {
+      axios
+          .get("http://localhost:4000/admin/product")
+          .then((response) => {
+            console.log("START\n");
+            console.log(response);
+            console.log("END\n");
+            this.products = response.data;
+            console.log("this products: ",this.products)
+            console.log("produduct name convert: ", this.product_name_convert)
+            this.product_id = this.getIDByPath(this.product_name_convert)
+            console.log("product_id: ", this.product_id)
+            // call api get product_details
+            this.getProductByID()
+            // luu vao local storage
+            // this.singleItem =
+          })
+          .catch((error) => {
+            console.log(error.response);
+          });
+      axios
+          .get("http://localhost:4000/admin/product")
+          .then((response) => {
+            this.items = response.data;
+            this.item_id = this.getIDItemByPath(this.item_name_convert)
+            this.getProductItemByID()
+          })
+          .catch((error) => {
+            console.log(error.response);
+          });
+    },
+    getItemByID() {
+      console.log(this.$route.params)
+      this.product_name_convert = this.$route.params.product_name_convert
+      this.item_name_convert = this.$route.params.item_name_convert
+      this.getItems()
+    },
+    getProductByID() {
+      axios
+          .get(`http://localhost:4000/admin/product/${this.product_id}`)
+          .then((response) => {
+            console.log("START res product\n");
+            console.log(response);
+            console.log("END\n");
+            this.product = response.data[0];
+            this.product.list = response.data[0].list;
+          })
+          .catch((error) => {
+            console.log("CAN NOT")
+            console.log(error.response);
+          });
+    },
+    getProductItemByID() {
+      axios
+          .get(`http://localhost:4000/admin/product/${this.item_id}`)
+          .then((response) => {
+            console.log("START res item\n");
+            console.log(response);
+            console.log("END\n");
+            this.item = response.data[0];
+            this.item.list = response.data[0].list;
+          })
+          .catch((error) => {
+            console.log("CAN NOT")
+            console.log(error.response);
+          });
+    },
+    increaseQuantity() {
+      this.quantity++
+    },
+    decreaseQuantity() {
+      if (this.quantity > 1) {
+        this.quantity--
+      }
+    }
+  },
+
+  mounted() {
+    // Gọi API để lấy danh sách sản phẩm
+    axios.get('http://localhost:4000/category/phone')
+        .then(response => {
+          this.items = response.data;
+        })
+        .catch(error => {
+          console.log(error);
+        });
+  },
+
+  computed: {
+    salePrice() {
+      return product => product.price - product.discount;
+      return item => item.price - item.discount;
+    },
+    payPerMonth() {
+      return product => this.salePrice(product) / 12;
+      return item => this.salePrice(item) / 12;
+    },
+    rewardPoint() {
+      return product => product.price / 40000;
+    },
+    discountPercentage() {
+      return product => `${((this.salePrice(product) / product.price) * 100).toFixed(2)}%`;
+      return item => `${((this.salePrice(item) / item.price) * 100).toFixed(2)}%`;
+    },
+    progressBarWidth() {
+      return product => this.discountPercentage(product);
+      return item => this.discountPercentage(item);
+    },
+    filteredProducts() {
+      return this.products.slice(0, 4);
+    },
+    filteredItems() {
+      return this.items.slice(0, 4);
+    },
+    product_name_convert_computed(){
+      return this.removeVietnameseTones(this.product_name).replaceAll(' ', '-').toLowerCase()
+    },
+    item_name_convert_computed(){
+      return this.removeVietnameseTones(this.item_name).replaceAll(' ', '-').toLowerCase()
+    }
+  },
 }
 </script>
 
@@ -519,4 +767,41 @@ export default {
   @import "@/assets/reponsive.css";
   @import "@/assets/grid.css";
   @import "@/assets/style.css";
+
+  .modal-product .modal-product__img,
+  .modal-product .modal-product__name,
+  .modal-product .modal-product__price,
+  .modal-product .modal-product__quantity
+  {
+    display: inline-block;
+  }
+
+  .modal-product__img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 8px;
+    margin-right: 8px;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .modal-product__name {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    color: #32373d;
+  }
+
+  /* Tooltip text color */
+  .tooltip::after {
+    color: red; /* Change to desired color */
+  }
+
 </style>

@@ -18,22 +18,24 @@
                 </div>
               </div>
               <div class="col l-5 m-6 c-12" style="top: 10px">
-                <MDBInput
-                    inputGroup
-                    :formOutline="false"
-                    wrapperClass="mb-3"
-                    v-model="search5"
-                    placeholder="Nhập tên điện thoại, máy tính, phụ kiện... cần tìm"
-                    aria-label="Search"
-                >
-                  <MDBBtn color="primary" @click="showAlert"
-                          style="background-color: #333333;
+                <div style="margin-top: 10px">
+                  <MDBInput
+                      inputGroup
+                      :formOutline="false"
+                      wrapperClass="mb-3"
+                      v-model="search5"
+                      placeholder="Nhập tên điện thoại, máy tính, phụ kiện... cần tìm"
+                      aria-label="Search"
+                  >
+                    <MDBBtn color="primary" @click="showAlert"
+                            style="background-color: #333333 !important;
                                   width: 58px;
                                   height: 36px;"
-                  >
-                    <MDBIcon icon="search"/>
-                  </MDBBtn>
-                </MDBInput>
+                    >
+                      <MDBIcon icon="search"/>
+                    </MDBBtn>
+                  </MDBInput>
+                </div>
               </div>
               <div class="col l-5 m-6 c-6">
                 <ul class="service">
@@ -169,7 +171,6 @@
                         <td>
                           <a href="#">Samsung Galaxy A53 5G 256GB
                             <p class="hot-selling-price">10.990.000 ₫</p>
-
                           </a>
                         </td>
                       </tr>
@@ -288,10 +289,10 @@
                   </div>
                 </li>
                 <li class="menu-top-item">
-                  <a href="/phone">
+                  <router-link to="/laptop">
                     <i class="fa fa-tablet"></i>
                     Máy tính bảng
-                  </a>
+                  </router-link>
                   <div class="nav-box">
                     <table class="nav-company htablet">
                       <tr>
@@ -592,6 +593,7 @@ export default {
       type: Function,
     },
   },
+
   setup() {
     const search5 = ref('');
     const showAlert = () => alert(search5.value);

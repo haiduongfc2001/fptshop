@@ -1,7 +1,9 @@
 <template>
   <div class="app">
     <div class="view">
-      <div :class="{'login-view': isSignUp, 'login-view-none': !isSignUp}"><Login :closeSignUp="closeSignUp"/></div>
+      <div :class="{'login-view': isSignUp, 'login-view-none': !isSignUp}" style="z-index: 100">
+        <Login :closeSignUp="closeSignUp"/>
+      </div>
       <Header :openSignUp="openSignUp"/>
       <router-view/>
       <Footer />
@@ -25,15 +27,14 @@ export default {
   methods: {
     openSignUp() {
       this.isSignUp = true
-      console.log('hello')
     },
     closeSignUp() {
       this.isSignUp = false
     }
   }
-
-}
+};
 </script>
+
 <style>
 .view {
   position: relative;

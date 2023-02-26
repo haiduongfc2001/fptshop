@@ -1,10 +1,11 @@
 <template>
-  <div>
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        <strong>
-          MUA NGAY
-        </strong>
+    <button type="button" class="btn btn-primary btn-xl btn-full" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+        <div>
+          <strong>
+            MUA NGAY
+          </strong>
+        </div>
         <p>Giao hàng miễn phí hoặc nhận tại shop</p>
     </button>
     <!-- Modal -->
@@ -16,6 +17,18 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
+            <div class="modal-product">
+              <h2>{{ product.productname }}</h2>
+              <div class="product-cart__quality__wrap">
+                <button @click="decreaseQuantity" :disabled="quantity === 1" class="btn">
+                  <font-awesome-icon icon="fa-solid fa-minus" />
+                </button>
+                <span class="product-quantity"> {{ quantity }} </span>
+                <button @click="increaseQuantity" class="btn">
+                  <font-awesome-icon icon="fa-solid fa-plus" />
+                </button>
+              </div>
+            </div>
             <div class="cart__form cart__form--type">
               <div class="cart__form__block">
                 <div class="form-customer" style="display: block">
@@ -79,7 +92,6 @@
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -99,7 +111,18 @@ export default {
         'time',
         'range',
         'color'
-      ]
+      ],
+      quantity: 1
+    }
+  },
+  methods: {
+    increaseQuantity() {
+      this.quantity++
+    },
+    decreaseQuantity() {
+      if (this.quantity > 1) {
+        this.quantity--
+      }
     }
   }
 }

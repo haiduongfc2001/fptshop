@@ -1,37 +1,39 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
+import ProductDetails from "@/components/productdetails/ProductDetails.vue";
 
 export default createRouter({
   history: createWebHistory(),
   routes: [
       {
           path: '/',
-          name: 'home-view',
+          name: 'HomeView',
           component: HomeView
       },
       {
           path: '/phone',
-          name: 'phone-products',
+          name: 'Phone',
           component: import("@/components/product/Phone.vue")
       },
       {
           path: '/laptop',
-          name: 'laptop-products',
+          name: 'Laptop',
           component: import("@/components/product/Laptop.vue")
       },
       {
-          path: '/product-detail',
-          name: 'product-detail',
-          component: import("@/components/productdetails/ProductDetails.vue")
+          path: '/product/:product_name_convert',
+          name: 'productDetail',
+          component: ProductDetails,
+          props: true
       },
       {
           path: '/test',
-          name: 'test',
+          name: 'Test',
           component: import("@/components/icons/Test.vue")
       },
       {
           path: '/test1',
-          name: 'test1',
+          name: 'Test1',
           component: import("@/components/icons/Test1.vue")
       },
       {

@@ -5,8 +5,12 @@
         <div class="col l-12 m-12 c-12">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb breadcrumb-margin">
-              <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Laptop</li>
+              <li class="breadcrumb-item">
+                <router-link to="/">Trang chủ</router-link>
+              </li>
+              <li class="breadcrumb-item" aria-current="page">
+                Laptop
+              </li>
             </ol>
           </nav>
         </div>
@@ -57,46 +61,48 @@
               <!-- Hãng sản xuất -->
               <div class="sidebar-product-item item1">
                 <h3 class="sidebar-product-title">Hãng sản xuất</h3>
-<!--                <div class="form-check">-->
-<!--                  <label class="form-check-label">-->
-<!--                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue" checked>-->
-<!--                    Tất cả-->
-<!--                  </label>-->
-<!--                  <label class="form-check-label">-->
-<!--                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">-->
-<!--                    Apple-->
-<!--                  </label>-->
-<!--                  <label class="form-check-label">-->
-<!--                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue" >-->
-<!--                    Samsung-->
-<!--                  </label>-->
-<!--                  <label class="form-check-label">-->
-<!--                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">-->
-<!--                    Xiaomi-->
-<!--                  </label>-->
-<!--                  <label class="form-check-label">-->
-<!--                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue" >-->
-<!--                    OPPO-->
-<!--                  </label>-->
-<!--                  <label class="form-check-label">-->
-<!--                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">-->
-<!--                    Nokia-->
-<!--                  </label>-->
-<!--                  <label class="form-check-label">-->
-<!--                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">-->
-<!--                    Vivo-->
-<!--                  </label>-->
-<!--                  <label class="form-check-label">-->
-<!--                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">-->
-<!--                    Realme-->
-<!--                  </label>-->
-<!--                  <label class="form-check-label">-->
-<!--                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">-->
-<!--                    Vsmart-->
-<!--                  </label>-->
-<!--                </div>-->
-                <MDBCheckbox label="Tất cả" v-model="checkbox1" />
-                <MDBCheckbox label="Asus" v-model="checkbox2" />
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue" checked>
+                    Tất cả
+                  </label>
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">
+                    Apple
+                  </label>
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue" >
+                    Asus
+                  </label>
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">
+                    HP
+                  </label>
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue" >
+                    Lenovo
+                  </label>
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">
+                    MSI
+                  </label>
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">
+                    Gigabyte
+                  </label>
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">
+                    Acer
+                  </label>
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">
+                    LG
+                  </label>
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">
+                    Microsoft
+                  </label>
+                </div>
               </div>
               <!-- Mức giá -->
               <div class="sidebar-product-item">
@@ -108,25 +114,29 @@
                   </label>
                   <label class="form-check-label">
                     <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">
-                    Từ 2 - 4 triệu
-                  </label>
-                  <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue" >
-                    Từ 4 - 7 triệu
+                    Dưới 10 triệu
                   </label>
                   <label class="form-check-label">
                     <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">
-                    Từ 7 - 10 triệu
+                    Từ 10 - 15 triệu
                   </label>
                   <label class="form-check-label">
                     <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue" >
-                    Từ 10 triệu
+                    Từ 15 - 20 triệu
+                  </label>
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">
+                    Từ 20 - 25 triệu
+                  </label>
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue" >
+                    Trên 25 triệu
                   </label>
                 </div>
               </div>
               <!-- Tính năng đặt biệt -->
               <div class="sidebar-product-item">
-                <h3 class="sidebar-product-title">Tính năng đặt biệt</h3>
+                <h3 class="sidebar-product-title">Màn hình</h3>
                 <div class="form-check">
                   <label class="form-check-label">
                     <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue" checked>
@@ -134,25 +144,21 @@
                   </label>
                   <label class="form-check-label">
                     <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">
-                    Bảo mật vân tay
+                    Khoảng 13 inch
                   </label>
                   <label class="form-check-label">
                     <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue" >
-                    Nhận diện khuôn mặt
+                    Khoảng 14 inch
                   </label>
                   <label class="form-check-label">
                     <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">
-                    Sạc nhanh
-                  </label>
-                  <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">
-                    Chống nước & bụi
+                    Trên 15 inch
                   </label>
                 </div>
               </div>
               <!-- Pin -->
               <div class="sidebar-product-item">
-                <h3 class="sidebar-product-title">Pin</h3>
+                <h3 class="sidebar-product-title">CPU</h3>
                 <div class="form-check">
                   <label class="form-check-label">
                     <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue" checked>
@@ -160,19 +166,69 @@
                   </label>
                   <label class="form-check-label">
                     <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">
-                    Trên 2000mah
+                    Intel celeron
                   </label>
                   <label class="form-check-label">
                     <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue" >
-                    Trên 3000mah
+                    Intel pentium
                   </label>
                   <label class="form-check-label">
                     <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">
-                    Trên 4000mah
+                    Intel core i3
                   </label>
                   <label class="form-check-label">
                     <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">
-                    Trên 5000mah
+                    Intel core i5
+                  </label>
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">
+                    Intel core i5
+                  </label>
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">
+                    Intel core i7
+                  </label>
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">
+                    Amd ryzen 3
+                  </label>
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">
+                    Amd ryzen 5
+                  </label>
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">
+                    Amd ryzen 7
+                  </label>
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">
+                    Amd ryzen 9
+                  </label>
+                </div>
+              </div>
+              <!-- Ram -->
+              <div class="sidebar-product-item">
+                <h3 class="sidebar-product-title">Ram</h3>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue" checked>
+                    Tất cả
+                  </label>
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">
+                    Ram 4Gb
+                  </label>
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue" >
+                    Ram 8Gb
+                  </label>
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">
+                    Ram 16Gb
+                  </label>
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">
+                    Ram 32Gb
                   </label>
                 </div>
               </div>
@@ -206,7 +262,12 @@
                 <div class="product-wapper product">
                   <div class="row  no-gutters">
                     <div class="col l-12 m-12 c-12">
-                      <p class="title-product">SẢN PHẨM <span class="title-product-note">(333 sản phẩm)</span> </p>
+                      <p class="title-product">
+                        SẢN PHẨM
+                        <span class="title-product-note">
+                          ({{ numProducts }} sản phẩm)
+                        </span>
+                      </p>
                     </div>
                     <div class="col l-0 m-0 c-12">
                       <div class="sidebar-product">
@@ -294,55 +355,59 @@
                     </div>
                     <div class="product-cate-card active">
                       <div class="row no-gutters">
-                        <div v-for="laptopproduct in laptopproducts"
-                             :key="laptopproduct.id"
-                             class="col l-4 m-6 c-6 card-slider">
-                          <div class="product-card-item product-card-item-sale">
+                        <div v-for="product in products"
+                             :key="product.productid"
+                             class="col l-4 m-6 c-6 product-card"
+                             @click="handleProduct(product.productid, product.productname)">
+                          <div class="product-card-item product-card-item-sale" style="cursor: pointer">
                             <div class="product-card-item-img">
-                              <router-link to="/product-detail">
-                                <img :src="laptopproduct.img_url"
-                                     alt="{{ laptopproduct.name }}">
-                              </router-link>
+                              <img :src="product.img"
+                                   alt="{{ product.productname }}">
                               <div class="sticker">
-                                <span class="stickers sticker-event">{{ laptopproduct.installment }}</span>
+                                <span class="stickers sticker-event">Trả góp 0%</span>
                                 <br>
-                                <span class="stickers sticker-sale">{{ laptopproduct.sale }}</span>
+                                <span class="stickers sticker-sale">Lì xì {{ formatCurrency(product.discount) }}</span>
                               </div>
                             </div>
                             <div class="product-card-item-content">
-                              <h3>
-                                <a href="/" class="title-card">{{ laptopproduct.name }}</a>
+                              <h3 class="title-card">
+                                {{ product.productname }}
                               </h3>
                               <div class="price">
-                                <span class="new-price">{{ laptopproduct.price_sale }} đ</span>
-                                <span class="old-price">{{ laptopproduct.price }} đ</span>
+                                <div class="progress">
+                                  {{ formatCurrency(salePrice(product)) }}
+                                  <div class="progress-bar" role="progressbar" :style="{ width: progressBarWidth(product) }"
+                                       aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <!--                    <span class="old-price">{{ formatCurrency(price) }}</span>-->
+                                <div class="strike-price">
+                      <span style="text-decoration: line-through">
+                        {{ formatCurrency(product.price) }}
+                      </span>
+                                </div>
                               </div>
                               <div class="card-item-info__promo">
                                 <div class="card-item-info__promo-product">
+                      <span>
+                        <i><font-awesome-icon icon="fa-solid fa-laptop" /></i>
+                        {{ getMonitorSize(product.description.monitor) }}
+                      </span>
                                   <span>
-                                    <i><font-awesome-icon icon="fa-solid fa-laptop" /></i>
-                                    {{ laptopproduct.screen }}
-                                  </span>
+                        <i><font-awesome-icon icon="fa-solid fa-microchip" /></i>
+                        {{ product.description.cpu }}
+                      </span>
                                   <span>
-                                    <i><font-awesome-icon icon="fa-solid fa-microchip" /></i>
-                                    {{ laptopproduct.cpu }}
-                                  </span>
+                        <i><font-awesome-icon icon="fa-solid fa-hard-drive" /></i>
+                        {{ product.description.disk }}
+                      </span>
                                   <span>
-                                    <i><font-awesome-icon icon="fa-solid fa-microchip" /></i>
-                                    {{ laptopproduct.ram }}
-                                  </span>
+                        <i><font-awesome-icon icon="fa-solid fa-microchip" /></i>
+                        {{ getMonitorSize(product.description.ram) }}
+                      </span>
                                   <span>
-                                    <i><font-awesome-icon icon="fa-solid fa-hard-drive" /></i>
-                                    {{ laptopproduct.harddrive }}
-                                  </span>
-                                  <span>
-                                    <i><font-awesome-icon icon="fa-solid fa-microchip" /></i>
-                                    {{ laptopproduct.graphics }}
-                                  </span>
-                                  <span>
-                                    <i><font-awesome-icon icon="fa-solid fa-weight-hanging" /></i>
-                                    {{ laptopproduct.weight }}
-                                  </span>
+                        <i><font-awesome-icon icon="fa-solid fa-weight-hanging" /></i>
+                        {{ getMonitorSize(product.description.gpu) }}
+                      </span>
                                 </div>
                                 <ItemInfoPromo />
                               </div>
@@ -364,157 +429,95 @@
 
 <script>
 import { MDBCheckbox } from "mdb-vue-ui-kit";
-import { ref } from "vue";
 import ItemInfoPromo from "@/components/layouts/ItemInfoPromo.vue";
+import { formatCurrency } from '@/utils'
+import {ref} from "vue";
+import axios from "axios";
 
 export default {
   name: "Laptop",
-  data() {
-    return {
-      laptopproducts: [
-        {
-          id: "l1",
-          name: "MacBook Air 13\" 2020 M1 256GB",
-          img_url: "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2020/11/12/637407970062806725_mba-2020-gold-dd.png",
-          price_sale: "20.000.000",
-          price: "25.000.000",
-          screen: "15.6 inch",
-          cpu: "Core i5",
-          ram: "8 GB",
-          harddrive: "SSD 512 GB",
-          graphics: "NVIDIA GeForce RTX 3050 Ti 4GB",
-          weight: "2 kg",
-        },
-        {
-          id: "l2",
-          name: "Asus TUF Gaming FX506LHB-HN188W i5 10300H",
-          img_url: "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/1/26/637787904727727554_asus-tuf-gaming-fx506lh-den-2022-dd.jpg",
-          price_sale: "20.000.000",
-          price: "25.000.000",
-          screen: "15.6 inch",
-          cpu: "Core i5",
-          ram: "8 GB",
-          harddrive: "SSD 512 GB",
-          graphics: "NVIDIA GeForce RTX 3050 Ti 4GB",
-          weight: "2 kg",
-          installment: "Trả góp 0%",
-          sale: "Lì xì 3.000.000đ",
-        },
-        {
-          id: "l3",
-          name: "HP Pavilion 15-eg2057TU i5 1240P/6K787PA",
-          img_url: "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/7/29/637947006257497678_hp-pavilion-15-eg-bac-2022-win11-dd.jpg",
-          price_sale: "20.790.000",
-          price: "25.990.000",
-          screen: "15.6 inch",
-          cpu: "Core i7",
-          ram: "8 GB (1 thanh 8 GB)",
-          harddrive: "SSD 512 GB",
-          graphics: "NVIDIA GeForce RTX 3050 4GB",
-          weight: "2.25 kg"
-        },
-        {
-          id: "l4",
-          name: "Asus TUF Gaming FA506IHRB-HN019W R5 4600H",
-          img_url: "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/8/2/637950740313797526_asus-tuf-gaming-fa506ihr-den-dd.jpg",
-          price_sale: "20.000.000",
-          price: "25.000.000",
-          screen: "15.6 inch",
-          cpu: "Core i5",
-          ram: "8 GB",
-          harddrive: "SSD 512 GB",
-          graphics: "NVIDIA GeForce RTX 3050 Ti 4GB",
-          weight: "2 kg",
-          installment: "Trả góp 0%",
-          sale: "Lì xì 3.000.000đ",
-        },
-        {
-          id: "l5",
-          name: "MacBook Air 13\" 2020 M1 256GB",
-          img_url: "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2020/11/12/637407970062806725_mba-2020-gold-dd.png",
-          price_sale: "20.790.000",
-          price: "25.990.000",
-          screen: "15.6 inch",
-          cpu: "Core i7",
-          ram: "8 GB (1 thanh 8 GB)",
-          harddrive: "SSD 512 GB",
-          graphics: "NVIDIA GeForce RTX 3050 4GB",
-          weight: "2.25 kg",
-          installment: "Trả góp 0%",
-          sale: "Lì xì 3.000.000đ",
-        },
-        {
-          id: "l6",
-          name: "Asus TUF Gaming FX506LHB-HN188W i5 10300H",
-          img_url: "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/1/26/637787904727727554_asus-tuf-gaming-fx506lh-den-2022-dd.jpg",
-          price_sale: "20.000.000",
-          price: "25.000.000",
-          screen: "15.6 inch",
-          cpu: "Core i5",
-          ram: "8 GB",
-          harddrive: "SSD 512 GB",
-          graphics: "NVIDIA GeForce RTX 3050 Ti 4GB",
-          weight: "2 kg"
-        },
-        {
-          id: "l7",
-          name: "HP Pavilion 15-eg2057TU i5 1240P/6K787PA",
-          img_url: "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/7/29/637947006257497678_hp-pavilion-15-eg-bac-2022-win11-dd.jpg",
-          price_sale: "20.790.000",
-          price: "25.990.000",
-          screen: "15.6 inch",
-          cpu: "Core i7",
-          ram: "8 GB (1 thanh 8 GB)",
-          harddrive: "SSD 512 GB",
-          graphics: "NVIDIA GeForce RTX 3050 4GB",
-          weight: "2.25 kg",
-          installment: "Trả góp 0%",
-          sale: "Lì xì 3.000.000đ",
-        },
-        {
-          id: "l8",
-          name: "Asus TUF Gaming FA506IHRB-HN019W R5 4600H",
-          img_url: "https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/8/2/637950740313797526_asus-tuf-gaming-fa506ihr-den-dd.jpg",
-          price_sale: "20.000.000",
-          price: "25.000.000",
-          screen: "15.6 inch",
-          cpu: "Core i5",
-          ram: "8 GB",
-          harddrive: "SSD 512 GB",
-          graphics: "NVIDIA GeForce RTX 3050 Ti 4GB",
-          weight: "2 kg"
-        },
-        {
-          id: "l9",
-          name: "Lenovo Yoga Slim 7 Pro 14IHU5O i5 11300H/82NH00AFVN",
-          img_url: "https://images.fpt.shop/unsafe/fit-in/240x215/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/5/25/637890960008464129_lenovo-yoga-slim-7-pro-14ihu5-bac-dd-oled.jpg",
-          price_sale: "20.790.000",
-          price: "25.990.000",
-          screen: "15.6 inch",
-          cpu: "Core i7",
-          ram: "8 GB (1 thanh 8 GB)",
-          harddrive: "SSD 512 GB",
-          graphics: "NVIDIA GeForce RTX 3050 4GB",
-          weight: "2.25 kg",
-          installment: "Trả góp 0%",
-          sale: "Lì xì 3.000.000đ",
-        },
-      ],
-    }
-  },
   components: {
     ItemInfoPromo,
     MDBCheckbox
   },
-  setup() {
-    const checkbox1 = ref(false);
-    const checkbox2 = ref(true);
-
+  data() {
     return {
-      checkbox1,
-      checkbox2
-    };
-  }
+      products: [],
+      product_id: "-1",
+      product_name: "",
+    }
+  },
+
+  methods: {
+    formatCurrency,
+
+    getMonitorSize(monitorString) {
+      // Split the monitor string by comma and space
+      const monitorArray = monitorString.split(", ");
+      // Get the first element of the array
+      const monitorSize = monitorArray[0];
+      return monitorSize;
+    },
+    handleProduct(product_id, product_name) {
+      this.product_id = product_id;
+      this.product_name = product_name;
+      // console.log(this.product_name_convert),
+      this.$router.push({
+        name: "productDetail",
+        params: {product_id: `${this.product_id}`, product_name_convert: `${this.product_name_convert_computed}`},
+      }).catch(() => true);
+    },
+    removeVietnameseTones(str) {
+      str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g,"a");
+      str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g,"e");
+      str = str.replace(/ì|í|ị|ỉ|ĩ/g,"i");
+      str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g,"o");
+      str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g,"u");
+      str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g,"y");
+      str = str.replace(/đ/g,"d");
+      str = str.replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A");
+      str = str.replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ/g, "E");
+      str = str.replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I");
+      str = str.replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ/g, "O");
+      str = str.replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U");
+      str = str.replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y");
+      str = str.replace(/Đ/g, "D");
+      // Some system encode vietnamese combining accent as individual utf-8 characters
+      // Một vài bộ encode coi các dấu mũ, dấu chữ như một kí tự riêng biệt nên thêm hai dòng này
+      str = str.replace(/\u0300|\u0301|\u0303|\u0309|\u0323/g, ""); // ̀ ́ ̃ ̉ ̣  huyền, sắc, ngã, hỏi, nặng
+      str = str.replace(/\u02C6|\u0306|\u031B/g, ""); // ˆ ̆ ̛  Â, Ê, Ă, Ơ, Ư
+      return str;
+    }
+  },
+
+  mounted() {
+    // Gọi API để lấy danh sách sản phẩm
+    axios.get('http://localhost:4000/category/laptop')
+        .then(response => {
+          this.products = response.data;
+        })
+        .catch(error => {
+          console.log(error);
+        });
+  },
+
+  computed: {
+    salePrice() {
+      return product => product.price - product.discount;
+    },
+    discountPercentage() {
+      return product => `${((this.salePrice(product) / product.price) * 100).toFixed(2)}%`;
+    },
+    progressBarWidth() {
+      return product => this.discountPercentage(product);
+    },
+    product_name_convert_computed(){
+      return this.removeVietnameseTones(this.product_name).replaceAll(' ', '-').toLowerCase()
+    },
+    numProducts() {
+      return this.products.length;
+    }
+  },
 }
 </script>
 

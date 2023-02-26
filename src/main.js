@@ -2,9 +2,11 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import './assets/main.css'
 import router from './router'
+import axios from "axios";
 
 import "bootstrap/dist/js/bootstrap.js"
-// import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap.css';
+
 // import 'bootstrap-vue/dist/bootstrap-vue.css'
 // const bootstrap = require('bootstrap')
 // import {BootstrapVue, IconsPlugin} from "bootstrap-vue"
@@ -39,7 +41,7 @@ import {
     faTv,
     faChargingStation,
     faBagShopping,
-    faCircleCheck, faTruckFast, faImage, faBox, faCirclePlus,
+    faCircleCheck, faTruckFast, faImage, faBox, faCirclePlus, faMinus, faPlus,
 } from '@fortawesome/free-solid-svg-icons'
 import {faApple, faYoutube} from "@fortawesome/free-brands-svg-icons";
 import {faCircleInfo} from "@fortawesome/free-solid-svg-icons/faCircleInfo";
@@ -48,7 +50,7 @@ import {faCircleInfo} from "@fortawesome/free-solid-svg-icons/faCircleInfo";
 library.add(faUserSecret, faUser, faMobileScreenButton, faMedal, faBattery, faSimCard, faApple, faMobileButton,
             faHeadphonesSimple, faPrint, faComputerMouse, faKeyboard, faMicrochip, faMobile, faMemory, faLaptop,
             faWeightHanging, faHardDrive, faTv, faChargingStation, faBagShopping, faCircleCheck, faTruckFast, faImage,
-            faYoutube, faBox, faCircleInfo, faCirclePlus)
+            faYoutube, faBox, faCircleInfo, faCirclePlus, faMinus, faPlus)
 
 createApp(App)
     .use(router)
