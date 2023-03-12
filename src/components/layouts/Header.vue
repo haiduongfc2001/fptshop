@@ -19,19 +19,19 @@
               </div>
               <div class="col l-5 m-6 c-12" style="top: 10px">
 
-                  <div style="margin-top: 10px">
-                    <MDBInput
-                        tag="form"
-                        @submit.prevent="search"
-                        inputGroup
-                        :formOutline="false"
-                        wrapperClass="mb-3"
-                        v-model="searchTerm"
-                        placeholder="Nhập tên điện thoại, máy tính, phụ kiện... cần tìm"
-                        aria-label="Search"
-                        @keydown.enter="goToSearchResult"
-                    >
-                      <router-link :to="{ path: '/searchresult', query: { searchTerm: searchTerm } }">
+                <div style="margin-top: 10px">
+                  <MDBInput
+                      tag="form"
+                      @submit.prevent="search"
+                      inputGroup
+                      :formOutline="false"
+                      wrapperClass="mb-3"
+                      v-model="searchTerm"
+                      placeholder="Nhập tên điện thoại, máy tính, phụ kiện... cần tìm"
+                      aria-label="Search"
+                      @keydown.enter="goToSearchResult"
+                  >
+                    <router-link :to="{ path: '/searchresult', query: { searchTerm: searchTerm } }">
                       <MDBBtn color="primary"
                               style="background-color: #333333 !important;
                                   width: 58px;
@@ -39,9 +39,9 @@
                       >
                         <MDBIcon icon="search"/>
                       </MDBBtn>
-                      </router-link>
-                    </MDBInput>
-                  </div>
+                    </router-link>
+                  </MDBInput>
+                </div>
 
               </div>
               <div class="col l-5 m-6 c-6">
@@ -78,7 +78,17 @@
                       <span>Tài khoản của tôi</span>
                     </a>
                   </li>
-                  <li class="service-cart">
+                  <li v-if="itemCount === 0" class="service-cart">
+                    <router-link to="/cart">
+                      <div>
+                        <i class="fa fa-shopping-cart"></i>
+                      </div>
+                      <div style="display: flex">
+                        <span>Giỏ hàng</span>
+                      </div>
+                    </router-link>
+                  </li>
+                  <li v-else class="service-cart">
                     <router-link to="/cart">
                       <div>
                         <i class="fa fa-shopping-cart"></i>
@@ -98,9 +108,9 @@
         <div class="header-bottom">
           <div class="grid wide">
             <div class="row">
-<!--              <div class="col l-12 m-0 c-1">-->
-<!--                -->
-<!--              </div>-->
+              <!--              <div class="col l-12 m-0 c-1">-->
+              <!--                -->
+              <!--              </div>-->
               <ul class="menu-top">
                 <li class="menu-top-item">
                   <router-link to="/phone">
@@ -208,13 +218,13 @@
                   </div>
                 </li>
                 <li class="menu-top-item">
-<!--                  <a href="/phone">-->
-<!--                    <i class="fa fa-laptop"></i>-->
-<!--                    Laptop-->
-<!--                  </a>-->
+                  <!--                  <a href="/phone">-->
+                  <!--                    <i class="fa fa-laptop"></i>-->
+                  <!--                    Laptop-->
+                  <!--                  </a>-->
                   <router-link to="/laptop">
                     <font-awesome-icon icon="fa-solid fa-laptop" style="margin-right: 4px"/>
-                     Laptop
+                    Laptop
                   </router-link>
                   <div class="nav-box">
                     <table class="nav-company">
@@ -636,25 +646,25 @@ export default {
 </script>
 
 <style>
-  @import "@/assets/main.css";
-  @import "@/assets/slider.css";
-  @import "@/assets/slider-card.css";
-  @import "@/assets/reponsive.css";
-  @import "@/assets/grid.css";
-  @import "@/assets/style.css";
+@import "@/assets/main.css";
+@import "@/assets/slider.css";
+@import "@/assets/slider-card.css";
+@import "@/assets/reponsive.css";
+@import "@/assets/grid.css";
+@import "@/assets/style.css";
 
-  .countTotalCart {
-    position: absolute;
-    top: 5px;
-    left: 33px;
-    width: 15px;
-    height: 15px;
-    line-height: 15px;
-    text-align: center;
-    font-size: 10px;
-    color: #fff;
-    display: inline-block;
-    background: #f5a623;
-    border-radius: 100%;
-  }
+.countTotalCart {
+  position: absolute;
+  top: 5px;
+  left: 33px;
+  width: 15px;
+  height: 15px;
+  line-height: 15px;
+  text-align: center;
+  font-size: 10px;
+  color: #fff;
+  display: inline-block;
+  background: #f5a623;
+  border-radius: 100%;
+}
 </style>
