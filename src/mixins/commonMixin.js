@@ -67,7 +67,13 @@ export default {
 
             if (existingProduct) {
                 // Product already in the cart, increase its quantity
-                existingProduct.quantity += this.quantity;
+                if (existingProduct.quantity < 4) {
+                    // Increase its quantity by 1 if less than 4
+                    existingProduct.quantity++;
+                } else {
+                    // Do nothing if quantity is already 4 or more
+                    return;
+                }
             } else {
                 // Product not in the cart, add it as a new entry
                 const entry = {
