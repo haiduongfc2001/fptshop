@@ -206,16 +206,18 @@
         //     .catch((error) => {
         //       console.log(error.response)
         //     });
+        const otp = this.data.otp;
+        const phone = this.data.phoneNumber;
         axios
             .post("http://localhost:4000/verify-otp", {
-              phone: this.data.phoneNumber,
-              otp: this.data.otp,
+              otp: otp,
+              phone: phone,
             })
             .then((response) => {
               // Get token from headers and save in localStorage
-              const token = response.headers.authorization;
-              console.log("Token:", token);
-              localStorage.setItem("token", token);
+              const token = response.headers.authorization.split(" ")[1]; // get the token from headers.authorization
+              localStorage.setItem("token", token); // save the token to localStorage
+              console.log("Token: ", token);
               this.$router.push("/userAccount");
             })
             .catch((error) => {
